@@ -1,0 +1,33 @@
+<div class="container mt-5 mb-5">
+  <h3 class="mb-3">Sửa Đơn Hàng</h3>
+  <form action="">
+    <div class="mb-3">
+      <label class="form-label" for="">Trạng Thái:</label>
+      <select
+        class="form-control"
+        ng-model="inputValue.trang_thai"
+        name=""
+        id=""
+      >
+        <option value="Đang chờ xác nhận">Đang chờ xác nhận</option>
+        <option value="Đang chờ thanh toán">Đang chờ thanh toán</option>
+        <option value="Tạm giữ">Tạm giữ</option>
+        <option value="Đã hoàn thành">Đã hoàn thành</option>
+        <option value="Đã hủy">Đã hủy</option>
+      </select>
+    </div>
+    <div class="d-flex justify-content-center">
+      <a href="#!/admin/don-hang/danh-sach-don-hang" class="nav-link">
+        <button class="btn btn-secondary mx-1">
+          <i class="fa-solid fa-arrow-left me-1"></i>Quay Lại
+        </button>
+      </a>
+      <button
+        ng-click="onClickUpdateDonHang()"
+        class="btn btn-info text-white mx-1"
+      >
+        <i class="fa-solid fa-pen-to-square me-1"></i>Sửa
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,159 @@
+<div class="container" style="min-height: calc(100vh - 357.49px)">
+  <h3 class="mt-5 mb-4" style="color: #0dcaf0">THANH TOÁN</h3>
+  <div class="mb-5">
+    <form action="">
+      <div class="row">
+        <div class="col-lg-7 col-md-12 col-sm-12 col-12">
+          <h5 class="m-0">Thông tin thanh toán</h5>
+          <hr class="mt-1" />
+          <div class="d-flex justify-content-between mb-3 mt-3">
+            <div style="width: 47%">
+              <label class="fw-bold" for=""
+                >Họ <b style="color: red">*</b></label
+              ><input
+                class="form-control rounded-0"
+                style="min-height: 40px"
+                placeholder="Họ"
+                value="{{user.ten_tai_khoan}}"
+                type="text"
+              />
+            </div>
+            <div style="width: 47%">
+              <label class="fw-bold" for=""
+                >Tên <b style="color: red">*</b></label
+              ><input
+                class="form-control rounded-0"
+                style="min-height: 40px"
+                placeholder="Tên"
+                value="{{user.ten_tai_khoan}}"
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="fw-bold" for=""
+              >Địa chỉ <b style="color: red">*</b></label
+            ><input
+              ng-model="inputValue.dia_chi"
+              class="form-control rounded-0"
+              style="min-height: 40px"
+              placeholder="Địa chỉ"
+              type="text"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="fw-bold" for=""
+              >Số điện thoại <b style="color: red">*</b></label
+            ><input
+              ng-model="inputValue.so_dien_thoai"
+              class="form-control rounded-0"
+              style="min-height: 40px"
+              placeholder="Số điện thoại"
+              type="text"
+            />
+          </div>
+          <div>
+            <label class="fw-bold" for=""
+              >Email <b style="color: red">*</b></label
+            ><input
+              ng-model="inputValue.email"
+              class="form-control rounded-0 mb-5"
+              placeholder="Email"
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="col-lg-5 ps-lg-5 col-md-12 col-sm-12 col-12">
+          <div class="border p-4 pb-0">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="border-0">
+                    <h5 class="m-0">Đơn hàng của bạn</h5>
+                  </th>
+                  <th class="border-0"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="py-3">Sản phẩm</th>
+                  <th class="py-3">Tạm tính</th>
+                </tr>
+                <tr ng-repeat="tt in dsThanhToan">
+                  <td class="py-3 text-uppercase">
+                    <b>#{{tt.id}}</b> {{tt.danh_muc}}
+                  </td>
+                  <td class="py-3" style="color: #0dcaf0">
+                    {{tt.gia/2 | number:0}} VNĐ
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3">Tạm tính</td>
+                  <td class="py-3" style="color: #0dcaf0">
+                    {{tongGia | number:0}} VNĐ
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3">Tổng</td>
+                  <td class="py-3 fw-bold" style="color: #0dcaf0">
+                    {{tongGia | number:0}} VNĐ
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="py-3 border-0">
+                    <input type="radio" class="me-2" checked />Chuyển khoản ngân
+                    hàng
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border-0"><b>Tên tài khoản:</b> LÊ VĂN LONG</td>
+                  <td class="border-0"><b>Số tài khoản:</b> 123456789</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="border-0 text-center pt-4">
+                    Ngân hàng
+                    <a
+                      href="#"
+                      class="fw-bold"
+                      style="text-decoration: none; color: #5e2e86"
+                      >TPBank</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="border-0">
+                    <div class="w-100 text-center">
+                      <img
+                        src="images/maqr.jpg"
+                        class="w-50 rounded-1 shadow"
+                        alt=""
+                      />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="border-0 pt-5">
+                    <b style="color: red"
+                      ><i class="fa-solid fa-circle-exclamation fa-lg"></i> Vui
+                      lòng chuyển khoản trước khi mua</b
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="border-0 py-3">
+                    <button
+                      ng-click="onClickMua()"
+                      class="w-100 py-3 btn btn-info rounded-0 fw-bold text-white"
+                    >
+                      Mua
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

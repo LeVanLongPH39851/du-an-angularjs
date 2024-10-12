@@ -1,0 +1,52 @@
+<div class="container mt-5 mb-5">
+  <h3 class="mb-3">Danh Sách Danh Mục</h3>
+  <div class="d-flex justify-content-end">
+    <button
+      ng-click="onClickFormAddDanhMuc()"
+      class="btn btn-info text-white mb-3 d-flex"
+    >
+      <a href="" class="nav-link">
+        <i class="fa-solid fa-plus me-1"></i>Tạo mới</a
+      >
+    </button>
+  </div>
+  <table class="table table-bordered table-striped text-center table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên Danh Mục</th>
+        <th scope="col">Ảnh mô tả</th>
+        <th scope="col">Thao Tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="dm in dsDanhMuc">
+        <th scope="row">{{dm.id}}</th>
+        <td>{{dm.ten_danh_muc}}</td>
+        <td><img src="{{dm.anh_mo_ta}}" width="100px" alt="" /></td>
+        <td>
+          <button
+            ng-click="onClickXemDanhMuc(dm.ten_danh_muc)"
+            class="btn btn-success me-1"
+          >
+            <i class="fa-solid fa-eye me-1"></i>Xem</button
+          ><button
+            ng-click="onClickFormEditDanhMuc(dm.id)"
+            class="btn btn-warning mx-1"
+          >
+            <a href="" class="nav-link"
+              ><i class="fa-solid fa-pen-to-square me-1"></i>Sửa</a
+            >
+          </button>
+          <button
+            ng-click="onClickXoaDanhMuc(dm.id)"
+            type="button"
+            class="btn btn-danger"
+          >
+            <i class="fa-solid fa-trash"></i> Xóa
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

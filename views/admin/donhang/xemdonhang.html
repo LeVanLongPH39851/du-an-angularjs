@@ -1,0 +1,57 @@
+<div class="container mt-5 mb-5">
+  <h3 class="mb-3">Chi Tiết Sản Phẩm</h3>
+  <table class="table table-bordered table-striped text-center table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Giá</th>
+        <th>Tướng</th>
+        <th>Trang phục</th>
+        <th>Rank</th>
+        <th>Ngọc 90</th>
+        <th>Mô tả</th>
+        <th>Tạm Tính</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="dsct in dsChiTietDonHang">
+        <th class="py-5 text-center" style="color: #707070">#{{dsct.id}}</th>
+        <td class="text-center">
+          <img
+            src="{{dsct.anh_mo_ta}}"
+            style="border-radius: 2px"
+            width="185px"
+            alt=""
+          />
+        </td>
+        <td class="py-5">{{dsct.gia/2| number:0}} VNĐ</td>
+        <td class="py-5">{{dsct.tuong}}</td>
+        <td class="py-5">{{dsct.trang_phuc}}</td>
+        <td class="py-5">{{dsct.rank}}</td>
+        <td class="py-5">{{dsct.ngoc_90}}</td>
+        <td class="py-5">{{dsct.mo_ta}}</td>
+        <td class="py-5 fw-bold" style="color: #0dcaf0">
+          {{dsct.gia/2 | number:0}} VNĐ
+        </td>
+      </tr>
+      <tr>
+        <td
+          colspan="8"
+          class="text-end fw-bold border-end-0"
+          style="color: #0dcaf0"
+        >
+          Tổng Tiền: {{tongGia | number:0}} VNĐ
+        </td>
+        <th class="border-start-0"></th>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center mt-4">
+    <a href="#!/admin/don-hang/danh-sach-don-hang" class="nav-link">
+      <button class="btn btn-secondary mx-1">
+        <i class="fa-solid fa-arrow-left me-1"></i>Quay Lại
+      </button>
+    </a>
+  </div>
+</div>

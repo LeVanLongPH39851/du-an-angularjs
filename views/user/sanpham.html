@@ -1,0 +1,345 @@
+<div class="container" style="min-height: calc(100vh - 357.49px)">
+  <div class="w-100 p-4" style="background-color: #e0ebf9">
+    <h4 style="font-weight: 400">Nick Liên Quân Mobile</h4>
+    <div
+      class="w-100"
+      style="font-family: Times New Roman, Times, serif; font-size: 18px"
+    >
+      <p class="mb-0">
+        <span style="color: #1abc9c">Game Liên Quân Mobile</span> được phát hành
+        bởi <span style="color: #1abc9c">GARENA</span>
+      </p>
+      <p class="mb-0">Đối với Acc TRẮNG THÔNG TIN</p>
+      <p class="mb-0">
+        - <span style="color: #e74c3c">Bắt buộc</span> phải đổi Mật Khẩu sau khi
+        giao dịch thành công tại WEB,
+        <span style="color: #e74c3c"
+          >Bên SHOP sẽ không bảo hành những Acc Trắng thông tin</span
+        >
+      </p>
+      <p class="mb-0">
+        - SHOP chỉ bảo hành Trường Hợp Acc Bị Cấm Do Tranh Chấp ( trường hợp acc
+        bị khóa do sử dụng phần mềm thứ 3, tool hack, mod skin… shop không hỗ
+        trợ bảo hành )
+      </p>
+      <p class="mb-0">
+        - Trong trường hợp Acc có liên kết FB thì bên shop đã KHÓA FB cũ nên chỉ
+        chơi trên Acc Garena Shop cung cấp, Trường hợp FB khóa SHOP chỉ bảo hành
+        30 ngày, quá 30 ngày bên SHOP không hỗ trợ bảo hành
+      </p>
+      <p class="mb-0">
+        Đối với <span style="color: #e74c3c">Acc Có Số Điện Thoại</span>
+      </p>
+      <p class="mb-0">
+        - Do cơ chế của Garena mỗi tài khoản Garena chỉ được thay đổi thông tin
+        mỗi 30 ngày một lần
+      </p>
+      <p class="mb-0">
+        - Nên những tài khoản có SĐT ở shop chưa tới ngày đổi SĐT sẽ được shop
+        bảo hành trong thơi gian chờ đổi SĐT
+      </p>
+      <p class="mb-0">
+        - Khách Hàng có quyền yêu cầu SHOP hỗ trợ cài thông tin như Gmail, CMND
+        (nếu được), LK FB (nếu được)
+      </p>
+      <p class="mb-0">
+        Vui Lòng Đổi Mật Khẩu Ngay Sau Khi Mua Nick
+        <a href="#" style="color: #e74c3c; text-decoration: none">Tại Đây</a>
+      </p>
+      <p class="mb-0" style="color: #e74c3c">Lưu ý: Một số nick rank mùa Cũ</p>
+    </div>
+  </div>
+  <div class="d-flex mt-5 justify-content-between">
+    <div style="width: 20%">
+      <button
+        ng-click="onClickTatCaDanhMuc()"
+        class="btn btn-outline-info px-0 rounded-0 mb-2 w-100 fw-bold dm text-uppercase"
+        style="font-size: 14px; border-width: 2px"
+      >
+        Tất cả
+      </button>
+      <a ng-repeat="dm in dsDanhMuc" href="" class="">
+        <button
+          ng-click="onClickDanhMuc(dm.ten_danh_muc)"
+          class="btn btn-outline-info px-0 rounded-0 mb-2 w-100 fw-bold dm text-uppercase"
+          style="font-size: 14px; border-width: 2px"
+        >
+          {{dm.ten_danh_muc}}
+        </button>
+      </a>
+      <form action="">
+        <div class="mt-1 mb-2">
+          <div class="w-100 d-flex" style="min-height: 40px">
+            <div
+              class="d-flex justify-content-center align-items-center border w-25"
+              style="
+                background-color: #fafafa;
+                font-size: 14px;
+                font-weight: 400;
+              "
+            >
+              Tìm kiếm
+            </div>
+            <div class="w-75">
+              <input
+                type="text"
+                placeholder="Tìm kiếm"
+                class="form-control rounded-0 border-start-0 h-100"
+                style="font-size: 14px"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="mb-2">
+          <div class="w-100 d-flex" style="min-height: 40px">
+            <div
+              class="d-flex justify-content-center align-items-center border w-25"
+              style="
+                background-color: #fafafa;
+                font-size: 14px;
+                font-weight: 400;
+              "
+            >
+              Mã số
+            </div>
+            <div class="w-75">
+              <input
+                type="text"
+                placeholder="Mã số"
+                class="form-control rounded-0 border-start-0 h-100"
+                style="font-size: 14px"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="mb-2">
+          <div class="w-100 d-flex" style="min-height: 40px">
+            <div
+              class="d-flex justify-content-center align-items-center border w-25"
+              style="
+                background-color: #fafafa;
+                font-size: 14px;
+                font-weight: 400;
+              "
+            >
+              Giá tiền
+            </div>
+            <div class="w-75">
+              <select
+                style="font-size: 14px"
+                name=""
+                class="form-control rounded-0 border-start-0 h-100"
+                id=""
+              >
+                <option value="0">Chọn giá tiền</option>
+                <option value="">Dưới 50K</option>
+                <option value="">Từ 50K - 200K</option>
+                <option value="">Từ 200K - 500K</option>
+                <option value="">Từ 500 - 1 Triệu</option>
+                <option value="">Trên 1 Triệu</option>
+                <option value="">Trên 5 Triệu</option>
+                <option value="">Trên 10 Triệu</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="mb-2">
+          <div class="w-100 d-flex" style="min-height: 40px">
+            <div
+              class="d-flex justify-content-center align-items-center border w-25 text-nowrap"
+              style="
+                background-color: #fafafa;
+                font-size: 14px;
+                font-weight: 400;
+              "
+            >
+              Trạng thái
+            </div>
+            <div class="w-75">
+              <select
+                style="font-size: 14px"
+                name=""
+                class="form-control rounded-0 border-start-0 h-100"
+                id=""
+              >
+                <option value="">Chưa bán</option>
+                <option value="">Tất cả</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="w-100 d-flex" style="min-height: 40px">
+            <div
+              class="d-flex justify-content-center align-items-center border w-25"
+              style="
+                background-color: #fafafa;
+                font-size: 14px;
+                font-weight: 400;
+              "
+            >
+              Ngọc 90
+            </div>
+            <div class="w-75">
+              <select
+                style="font-size: 14px"
+                name=""
+                class="form-control rounded-0 border-start-0 h-100"
+                id=""
+              >
+                <option value="0">--Không chọn--</option>
+                <option value="">Có</option>
+                <option value="">Không</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="mb-2">
+          <button type="submit" class="btn btn-info text-white px-4 rounded-0">
+            Tìm kiếm
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger text-white rounded-0 px-3"
+          >
+            Tất cả
+          </button>
+        </div>
+      </form>
+    </div>
+    <div style="width: 77%">
+      <div class="row">
+        <div
+          ng-repeat="sp in dsSanPham"
+          class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4"
+        >
+          <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+            <div class="position-relative">
+              <img
+                src="{{sp.anh_mo_ta}}"
+                class="w-100 rounded-top-1 rounded-end-0"
+                alt=""
+              />
+              <div
+                style="
+                  background-color: rgba(255, 212, 36, 0.9);
+                  width: 48px;
+                  left: 0;
+                "
+                class="text-center sale position-relative position-absolute pb-2 top-0"
+              >
+                <span style="color: #ee4d2d" class="fw-bold">50%</span>
+                <p class="text-white fw-bold m-0">GIẢM</p>
+              </div>
+              <div
+                class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+                style="
+                  background-color: #a94442;
+                  width: 100px;
+                  height: 26px;
+                  right: 0;
+                  top: 5px;
+                "
+              >
+                Mã Số: {{sp.id}}
+              </div>
+            </div>
+
+            <div
+              class="w-100 text-white fw-bold mb-3"
+              style="background-color: #8a6969"
+            >
+              {{sp.mota}}
+            </div>
+            <div style="color: #5c6873" class="mb-3">
+              <div class="w-100 d-flex justify-content-around mb-2">
+                <div class="w-50">Tướng: <b>{{sp.tuong}}</b></div>
+                <div class="w-50">Trang phục: <b>{{sp.trang_phuc}}</b></div>
+              </div>
+              <div class="w-100 d-flex justify-content-around">
+                <div class="text-nowrap w-50">Rank: <b>{{sp.rank}}</b></div>
+                <div class="w-50">Ngọc 90: <b>{{sp.ngoc_90}}</b></div>
+              </div>
+            </div>
+            <div class="w-100 d-flex justify-content-evenly">
+              <div
+                style="color: #888; border: solid 2px #888; width: 40%"
+                class="py-1 rounded-2 mb-3"
+              >
+                <del>{{sp.gia | number:0}}đ</del>
+              </div>
+              <div
+                style="color: red; border: solid 2px red; width: 40%"
+                class="fw-bold py-1 rounded-2 mb-3"
+              >
+                {{sp.gia/2 | number:0}}đ
+              </div>
+            </div>
+            <button
+              ng-click="onClickXemChiTietSanPham(sp.id)"
+              class="btn btn-outline-info fw-bold mb-3"
+              style="width: 86.66666667%; border: solid 2px #0dcaf0"
+            >
+              Xem Chi Tiết
+            </button>
+          </div>
+        </div>
+        <style>
+          .sale:after {
+            content: "";
+            width: 0;
+            height: 0;
+            left: 0;
+            bottom: -4px;
+            position: absolute;
+            border-color: transparent rgba(255, 212, 36, 0.9);
+            border-style: solid;
+            border-width: 0 24px 4px;
+          }
+          .dm:focus {
+            background-color: #0dcaf0;
+            color: white;
+          }
+        </style>
+      </div>
+    </div>
+  </div>
+  <div class="w-100 d-flex">
+    <div class="w-25"></div>
+    <div class="w-75 d-flex justify-content-center mb-5 mt-3">
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <span class="page-link"
+              ><i class="fa-solid fa-angles-left"></i
+            ></span>
+          </li>
+          <li class="page-item active" aria-current="page">
+            <span
+              class="page-link"
+              style="border-color: #0dcaf0; background-color: #0dcaf0"
+              >1</span
+            >
+          </li>
+          <li class="page-item">
+            <a class="page-link" style="color: #0dcaf0" href="#">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" style="color: #0dcaf0" href="#"> 3</a>
+          </li>
+          <li class="page-item disabled">
+            <span class="page-link" style="color: #0dcaf0"> ...</span>
+          </li>
+          <li class="page-item">
+            <a class="page-link" style="color: #0dcaf0" href="#">100</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" style="color: #0dcaf0" href="#"
+              ><i class="fa-solid fa-angles-right"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

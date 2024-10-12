@@ -1,0 +1,205 @@
+<div class="container" style="min-height: calc(100vh - 357.49px)">
+  <div class="w-100 text-center mb-5 mt-5">
+    <h3 style="color: #505050">#{{spChiTiet.id}}</h3>
+    <p class="fw-bold" style="color: #eb5d68">{{spChiTiet.danh_muc}}</p>
+    <h4 style="color: #0dcaf0">{{spChiTiet.gia | number:0}} VNĐ</h4>
+
+    <p style="color: #505050; font-size: 17px" class="fw-bold text-uppercase">
+      NỔI BẬT: <b style="color: #eb5d68">{{spChiTiet.mo_ta}}</b>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+      <div class="text-center">
+        <div class="mb-2">
+          <img src="images/icontuong.png" width="30%" alt="" />
+        </div>
+        <p style="color: #505050; font-size: 17px" class="fw-bold">
+          TƯỚNG: <b style="color: #eb5d68">{{spChiTiet.tuong}}</b>
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+      <div class="text-center">
+        <div class="mb-2">
+          <img src="images/icontrangphuc.png" width="30%" alt="" />
+        </div>
+        <p style="color: #505050; font-size: 17px" class="fw-bold">
+          TRANG PHỤC: <b style="color: #eb5d68">{{spChiTiet.trang_phuc}}</b>
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+      <div class="text-center">
+        <div class="mb-2">
+          <img src="images/iconrank.png" width="30%" alt="" />
+        </div>
+        <p style="color: #505050; font-size: 17px" class="fw-bold">
+          RANK:
+          <b style="color: #eb5d68">{{spChiTiet.rank}}</b>
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+      <div class="text-center">
+        <div class="mb-2">
+          <img src="images/iconngoc.png" width="30%" alt="" />
+        </div>
+        <p style="color: #505050; font-size: 17px" class="fw-bold">
+          NGỌC 90: <b style="color: #eb5d68">{{spChiTiet.ngoc_90}}</b>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="w-100 position-relative mt-3 mb-5"
+    style="height: 2px; background-color: #3f444a"
+  >
+    <i
+      class="fa-solid fa-circle position-absolute"
+      style="color: #3f444a; left: 50%; top: -6px"
+    ></i>
+  </div>
+  <div
+    class="w-100 d-flex justify-content-lg-start justify-content-center mb-5"
+  >
+    <button
+      ng-click="onClickAddToCart(spChiTiet.id)"
+      class="btn btn-info me-1 rounded-0 fw-bold text-white"
+    >
+      THÊM VÀO GIỎ HÀNG</button
+    ><button class="btn btn-danger rounded-0 ms-1 fw-bold">MUA NGAY</button>
+  </div>
+  <div
+    class="w-100 position-relative mb-5"
+    style="height: 2px; background-color: #3f444a"
+  >
+    <i
+      class="fa-solid fa-circle position-absolute"
+      style="color: #3f444a; left: 50%; top: -6px"
+    ></i>
+  </div>
+  <div class="row mb-3">
+    <div
+      class="col-lg-6 col-md-12 col-sm-12 col-12 mb-1 mb-lg-3 mb-sm-1 mb-md-2"
+    >
+      <div class="p-1 border rounded-1">
+        <img src="{{spChiTiet.anh_mo_ta}}" class="w-100" alt="" />
+      </div>
+    </div>
+    <div
+      ng-repeat="anhCT in albumAnhChiTiet"
+      class="col-lg-6 col-md-12 col-sm-12 col-12 mb-1 mb-lg-3 mb-sm-1 mb-md-2"
+    >
+      <div class="p-1 border rounded-1">
+        <img src="{{anhCT}}" class="w-100" alt="" />
+      </div>
+    </div>
+  </div>
+  <div
+    class="w-100 d-flex justify-content-lg-start justify-content-center mb-5"
+  >
+    <button
+      ng-click="onClickAddToCart(spChiTiet.id)"
+      class="btn btn-info me-1 rounded-0 fw-bold text-white"
+    >
+      THÊM VÀO GIỎ HÀNG</button
+    ><button class="btn btn-danger rounded-0 ms-1 fw-bold">MUA NGAY</button>
+  </div>
+  <h3 class="text-center fw-bold mb-1 mt-5" style="color: #000000a6">
+    SẢN PHẨM CÙNG LOẠI
+  </h3>
+  <div
+    class="bg-info rounded-pill mx-auto mb-4"
+    style="width: 100px; height: 3px"
+  ></div>
+  <div class="row mb-5">
+    <div
+      class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4"
+      ng-repeat="spcl in spCungLoai"
+    >
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="{{spcl.anh_mo_ta}}"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: {{spcl.id}}
+          </div>
+        </div>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          {{spcl.mo_ta}}
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>{{spcl.tuong}}</b></div>
+            <div class="w-50">Trang phục: <b>{{spcl.trang_phuc}}</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>{{spcl.rank}}</b></div>
+            <div class="w-50">Ngọc 90: <b>{{spcl.ngoc_90}}</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>{{spcl.gia/2 | number:0}}đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            {{spcl.gia | number:0}}đ
+          </div>
+        </div>
+        <button
+          ng-click="onClickXemChiTietSanPham(spcl.id)"
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+    <style>
+      .sale:after {
+        content: "";
+        width: 0;
+        height: 0;
+        left: 0;
+        bottom: -4px;
+        position: absolute;
+        border-color: transparent rgba(255, 212, 36, 0.9);
+        border-style: solid;
+        border-width: 0 24px 4px;
+      }
+    </style>
+  </div>
+</div>

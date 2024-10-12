@@ -1,0 +1,56 @@
+<div class="container mt-5 mb-5">
+  <h3 class="mb-3">Chi Tiết Sản Phẩm</h3>
+  <table class="table table-bordered table-striped text-center table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Mục</th>
+        <th scope="col">Thông Tin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ID</td>
+        <td>{{detail.id}}</td>
+      </tr>
+      <tr>
+        <td>Ảnh Mô Tả</td>
+        <td><img src="{{detail.anh_mo_ta}}" width="100px" alt="" /></td>
+      </tr>
+      <tr>
+        <td>Giá</td>
+        <td>{{detail.gia}}</td>
+      </tr>
+      <tr>
+        <td>Tướng</td>
+        <td>{{detail.tuong}}</td>
+      </tr>
+      <tr>
+        <td>Trang Phục</td>
+        <td>{{detail.trang_phuc}}</td>
+      </tr>
+      <tr>
+        <td>Rank</td>
+        <td>{{detail.rank}}</td>
+      </tr>
+      <tr>
+        <td>Ngọc 90</td>
+        <td>{{detail.ngoc_90}}</td>
+      </tr>
+      <tr>
+        <td>Mô tả</td>
+        <td>{{detail.mo_ta}}</td>
+      </tr>
+      <tr>
+        <td>Danh Mục</td>
+        <td>{{detail.danh_muc}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center mt-4">
+    <a href="#!/admin/san-pham/danh-sach-san-pham" class="nav-link">
+      <button class="btn btn-secondary mx-1">
+        <i class="fa-solid fa-arrow-left me-1"></i>Quay Lại
+      </button>
+    </a>
+  </div>
+</div>

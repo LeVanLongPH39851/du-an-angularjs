@@ -1,0 +1,34 @@
+<div class="container mt-5 mb-5">
+  <h3 class="mb-3">Tạo Mới Danh Mục</h3>
+  <form>
+    <div class="mb-3">
+      <label class="form-label" for="">ID:</label>
+      <input class="form-control" ng-model="inputValue.id" type="text" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="">Tên Danh Mục:</label>
+      <input
+        class="form-control"
+        ng-model="inputValue.ten_danh_muc"
+        type="text"
+      />
+    </div>
+    <div class="mb-4">
+      <label class="form-label" for="">Ảnh mô tả:</label>
+      <input class="form-control" ng-model="inputValue.anh_mo_ta" type="text" />
+    </div>
+    <div class="d-flex justify-content-center">
+      <a href="#!/admin/danh-muc/danh-sach-danh-muc" class="nav-link">
+        <button class="btn btn-secondary mx-1">
+          <i class="fa-solid fa-arrow-left me-1"></i>Quay Lại
+        </button></a
+      >
+      <button
+        ng-click="onClickAddDanhMuc()"
+        class="btn btn-info text-white mx-1"
+      >
+        <i class="fa-solid fa-plus me-1"></i>Tạo Mới
+      </button>
+    </div>
+  </form>
+</div>

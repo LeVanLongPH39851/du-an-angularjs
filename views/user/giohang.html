@@ -1,0 +1,123 @@
+<div class="container" style="min-height: calc(100vh - 357.49px)">
+  <h3 class="mt-5 mb-3" style="color: #0dcaf0">GIỎ HÀNG</h3>
+  <table class="table border">
+    <thead>
+      <tr>
+        <th style="background-color: #fbfbfb"></th>
+        <th style="background-color: #fbfbfb"></th>
+        <th style="background-color: #fbfbfb"></th>
+        <th style="background-color: #fbfbfb">Giá</th>
+        <th style="background-color: #fbfbfb">Tướng</th>
+        <th style="background-color: #fbfbfb">Trang phục</th>
+        <th style="background-color: #fbfbfb">Rank</th>
+        <th style="background-color: #fbfbfb">Ngọc 90</th>
+        <th style="background-color: #fbfbfb">Mô tả</th>
+        <th style="background-color: #fbfbfb">Tạm Tính</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="gh in dsGioHang">
+        <td class="py-5">
+          <i class="fa-solid fa-circle-xmark fa-xl ms-4" style="color: red"></i>
+        </td>
+        <th class="py-5 text-center" style="color: #707070">#{{gh.id}}</th>
+        <td class="text-center">
+          <img
+            src="{{gh.anh_mo_ta}}"
+            style="border-radius: 2px"
+            width="185px"
+            alt=""
+          />
+        </td>
+        <td class="py-5" style="color: red">{{gh.gia/2 | number:0}} VNĐ</td>
+        <td class="py-5" style="color: Gold">{{gh.tuong}}</td>
+        <td class="py-5" style="color: DarkOrange">{{gh.trang_phuc}}</td>
+        <td class="py-5" style="color: DeepPink">{{gh.rank}}</td>
+        <td class="py-5" style="color: Crimson">{{gh.ngoc_90}}</td>
+        <td class="py-5" style="color: SaddleBrown">{{gh.mo_ta}}</td>
+        <td class="py-5 fw-bold" style="color: #0dcaf0">
+          {{gh.gia/2 | number:0}} VNĐ
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="text-start">
+          <div class="d-flex align-items-center ms-2">
+            <input
+              class="me-1 ps-2"
+              style="border: 1px solid #dddddd; outline: none; min-height: 35px"
+              type="text"
+              name=""
+              id=""
+              placeholder="Mã ưu đãi"
+            />
+            <button class="btn btn-info text-white fw-bold rounded-0 px-4 py-2">
+              Áp dụng
+            </button>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td colspan="2" class="text-end">
+          <button
+            class="btn btn-info text-white fw-bold rounded-0 px-4 py-2 me-2 opacity-50 not-hover"
+          >
+            <style>
+              .not-hover:hover {
+                cursor: not-allowed;
+                background-color: #909090;
+                border-color: #909090;
+              }
+            </style>
+            Cập nhật giỏ hàng
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="w-100 d-flex mt-4 justify-content-end mb-5">
+    <div style="width: 45%" class="px-4 border position-relative">
+      <div
+        style="height: 46.5px; background-color: #fbfbfb"
+        class="w-100 position-absolute top-0 start-0 border-bottom z-n1"
+      ></div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="fs-5" style="background-color: #fbfbfb">
+              Cộng giỏ hàng
+            </th>
+            <th style="background-color: #fbfbfb"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ps-lg-4 ps-md-3 py-3">Tạm tính</td>
+            <td style="color: #0dcaf0" class="fw-bold py-3">
+              {{tongGia | number:0}} VNĐ
+            </td>
+          </tr>
+          <tr>
+            <td class="ps-lg-4 ps-md-3 py-3">Tổng cộng</td>
+            <td style="color: #0dcaf0" class="fw-bold py-3">
+              {{tongGia | number:0}} VNĐ
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center pt-4 pb-3 border-0">
+              <button
+                ng-click="onClickThanhToan()"
+                ng-click=""
+                class="btn btn-info text-white fw-bold rounded-0 py-3 w-100"
+              >
+                Tiến hành thanh toán
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

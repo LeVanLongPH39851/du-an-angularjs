@@ -1,0 +1,51 @@
+<div class="container mt-5 mb-5">
+  <h3 class="mb-3">Danh Sách Sản Phẩm</h3>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-info text-white mb-3 d-flex">
+      <a href="" class="nav-link">
+        <i class="fa-solid fa-plus me-1"></i>Tạo mới</a
+      >
+    </button>
+  </div>
+  <table class="table table-bordered table-striped text-center table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên Khách Hàng</th>
+        <th scope="col">Số Điện Thoại</th>
+        <th scope="col">Email</th>
+        <th scope="col">Địa chỉ</th>
+        <th scope="col">Tổng giá</th>
+        <th scope="col">Trạng Thái</th>
+        <th scope="col">Thao Tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="dh in dsDonHang">
+        <th scope="row">{{dh.id}}</th>
+        <td>{{dh.ten_tai_khoan}}</td>
+        <td>{{dh.so_dien_thoai}}</td>
+        <td>{{dh.email}}</td>
+        <td>{{dh.dia_chi}}</td>
+        <td style="color: red">{{dh.tong_gia | number:0}} VNĐ</td>
+        <td class="fw-bold">{{dh.trang_thai}}</td>
+        <td>
+          <button
+            ng-click="onClickSuaDonHang(dh.id)"
+            class="btn btn-warning mx-1"
+          >
+            <a href="" class="nav-link"
+              ><i class="fa-solid fa-pen-to-square me-1"></i>Sửa</a
+            >
+          </button>
+          <button
+            ng-click="onClickXemChiTietDonHangAdmin(dh.id)"
+            class="btn btn-info me-1 text-white"
+          >
+            <i class="fa-solid fa-circle-info me-1"></i>Chi tiết
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

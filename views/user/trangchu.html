@@ -1,0 +1,745 @@
+<div class="container" style="min-height: calc(100vh - 357.49px)">
+  <div class="w-100 mb-5">
+    <div
+      id="carouselExampleInterval"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img src="images/banner.png" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="images/banner2.png" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner3.png" class="d-block w-100" alt="..." />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <h3 class="text-center fw-bold mb-1" style="color: #000000a6">DANH MỤC</h3>
+  <div
+    class="bg-info rounded-pill mx-auto mb-4"
+    style="width: 100px; height: 3px"
+  ></div>
+  <div class="row">
+    <div
+      ng-repeat="dm in dsDanhMuc"
+      class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4"
+    >
+      <div class="border rounded-1 p-1 text-center shadow">
+        <div class="mb-3">
+          <img src="{{dm.anh_mo_ta}}" class="w-100" alt="" />
+        </div>
+        <h6 class="fw-bold mb-3" style="color: #f7b03c">{{dm.ten_danh_muc}}</h6>
+        <p class="mb-3" style="color: #000000a6">
+          Số tài khoản: {{soLuongTaiKhoan()}}
+        </p>
+        <button
+          ng-click="onClickXemDanhMuc(dm.ten_danh_muc)"
+          style="border: solid 2px #0dcaf0"
+          class="w-75 btn btn-outline-info fw-bold mb-3"
+        >
+          Xem Tất Cả
+        </button>
+      </div>
+    </div>
+  </div>
+  <h3 class="text-center fw-bold mb-1 mt-5" style="color: #000000a6">
+    SẢN PHẨM MỚI NHẤT
+  </h3>
+  <div
+    class="bg-info rounded-pill mx-auto mb-4"
+    style="width: 100px; height: 3px"
+  ></div>
+  <div class="row">
+    <div
+      class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4"
+      ng-repeat="sp in dsSanPham | orderBy:'-id' | limitTo:8"
+    >
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="{{sp.anh_mo_ta}}"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: {{sp.id}}
+          </div>
+        </div>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          {{sp.mo_ta}}
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>{{sp.tuong}}</b></div>
+            <div class="w-50">Trang phục: <b>{{sp.trang_phuc}}</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>{{sp.rank}}</b></div>
+            <div class="w-50">Ngọc 90: <b>{{sp.ngoc_90}}</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>{{sp.gia | number:0}}đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            {{sp.gia/2 | number:0}}đ
+          </div>
+        </div>
+        <button
+          ng-click="onClickXemChiTietSanPham(sp.id)"
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+    <style>
+      .sale:after {
+        content: "";
+        width: 0;
+        height: 0;
+        left: 0;
+        bottom: -4px;
+        position: absolute;
+        border-color: transparent rgba(255, 212, 36, 0.9);
+        border-style: solid;
+        border-width: 0 24px 4px;
+      }
+    </style>
+  </div>
+  <h3 class="text-center fw-bold mb-1 mt-5" style="color: #000000a6">
+    SẢN PHẨM BÁN CHẠY
+  </h3>
+  <div
+    class="bg-info rounded-pill mx-auto mb-4"
+    style="width: 100px; height: 3px"
+  ></div>
+  <div class="row mb-5">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="images/spbanchay1.jpg"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: 9
+          </div>
+        </div>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          Nick Ngon Giá Rẻ
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>48</b></div>
+            <div class="w-50">Trang phục: <b>40</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>Cao Thủ</b></div>
+            <div class="w-50">Ngọc 90: <b>Có</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>500,000đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            250,000đ
+          </div>
+        </div>
+        <button
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="images/spbanchay2.jpg"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: 10
+          </div>
+        </div>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          Nick Ngon Giá Rẻ
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>51</b></div>
+            <div class="w-50">Trang phục: <b>70</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>Kim Cương</b></div>
+            <div class="w-50">Ngọc 90: <b>Không</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>500,000đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            250,000đ
+          </div>
+        </div>
+        <button
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="images/spbanchay3.jpg"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: 11
+          </div>
+        </div>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          Nick Ngon Giá Rẻ
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>78</b></div>
+            <div class="w-50">Trang phục: <b>108</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>Kim Cương</b></div>
+            <div class="w-50">Ngọc 90: <b>Có</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>600,000đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            300,000đ
+          </div>
+        </div>
+        <button
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="images/spbanchay4.jpg"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: 12
+          </div>
+        </div>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          Nick Ngon Giá Rẻ
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>91</b></div>
+            <div class="w-50">Trang phục: <b>164</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>Tinh Anh</b></div>
+            <div class="w-50">Ngọc 90: <b>Có</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>2,400,000đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            1,200,000đ
+          </div>
+        </div>
+        <button
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="images/spbanchay5.jpg"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: 12
+          </div>
+        </div>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          Nick Ngon Giá Rẻ
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>104</b></div>
+            <div class="w-50">Trang phục: <b>138</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>Cao Thủ</b></div>
+            <div class="w-50">Ngọc 90: <b>Có</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>1,900,000đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            950,000đ
+          </div>
+        </div>
+        <button
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="images/spbanchay6.jpg"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: 13
+          </div>
+        </div>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          Nick Ngon Giá Rẻ
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>115</b></div>
+            <div class="w-50">Trang phục: <b>233</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>Cao Thủ</b></div>
+            <div class="w-50">Ngọc 90: <b>Có</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>3,000,000đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            1,500,000đ
+          </div>
+        </div>
+        <button
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="images/spbanchay7.jpg"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: 14
+          </div>
+        </div>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          Nick Ngon Giá Rẻ
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>104</b></div>
+            <div class="w-50">Trang phục: <b>184</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>Kim Cương</b></div>
+            <div class="w-50">Ngọc 90: <b>Có</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>2,400,000đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            1,200,000đ
+          </div>
+        </div>
+        <button
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+      <div class="border rounded-1 text-center pb-1 shadow overflow-hidden">
+        <div class="position-relative">
+          <img
+            src="images/spbanchay8.jpg"
+            class="w-100 rounded-top-1 rounded-end-0"
+            alt=""
+          />
+          <div
+            style="
+              background-color: rgba(255, 212, 36, 0.9);
+              width: 48px;
+              left: 0;
+            "
+            class="text-center sale position-relative position-absolute pb-2 top-0"
+          >
+            <span style="color: #ee4d2d" class="fw-bold">50%</span>
+            <p class="text-white fw-bold m-0">GIẢM</p>
+          </div>
+          <div
+            class="fw-bold text-white position-absolute d-flex justify-content-center align-items-center"
+            style="
+              background-color: #a94442;
+              width: 100px;
+              height: 26px;
+              right: 0;
+              top: 5px;
+            "
+          >
+            Mã Số: 16
+          </div>
+        </div>
+        <style>
+          .sale:after {
+            content: "";
+            width: 0;
+            height: 0;
+            left: 0;
+            bottom: -4px;
+            position: absolute;
+            border-color: transparent rgba(255, 212, 36, 0.9);
+            border-style: solid;
+            border-width: 0 24px 4px;
+          }
+        </style>
+        <div
+          class="w-100 text-white fw-bold mb-3"
+          style="background-color: #8a6969"
+        >
+          Nick Ngon Giá Rẻ
+        </div>
+        <div style="color: #5c6873" class="mb-3">
+          <div class="w-100 d-flex justify-content-around mb-2">
+            <div class="w-50">Tướng: <b>94</b></div>
+            <div class="w-50">Trang phục: <b>182</b></div>
+          </div>
+          <div class="w-100 d-flex justify-content-around">
+            <div class="text-nowrap w-50">Rank: <b>Kim Cương</b></div>
+            <div class="w-50">Ngọc 90: <b>Có</b></div>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-evenly">
+          <div
+            style="color: #888; border: solid 2px #888; width: 40%"
+            class="py-1 rounded-2 mb-3"
+          >
+            <del>2,600,000đ</del>
+          </div>
+          <div
+            style="color: red; border: solid 2px red; width: 40%"
+            class="fw-bold py-1 rounded-2 mb-3"
+          >
+            1,300,000đ
+          </div>
+        </div>
+        <button
+          class="btn btn-outline-info fw-bold mb-3"
+          style="width: 86.66666667%; border: solid 2px #0dcaf0"
+        >
+          Xem Chi Tiết
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

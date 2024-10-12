@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-lg container">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"
+      ><img src="images/logo.gif" width="200px" alt=""
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="#">Trang Chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="#!/san-pham">Sản Phẩm</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="#">Giới Thiệu</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link fw-bold">Liên Hệ</a>
+        </li>
+      </ul>
+      <div ng-if="login=='success'" class="d-flex align-items-center">
+        <a href="#!/gio-hang">
+          <div class="position-relative p-2">
+            <i
+              class="fa-solid fa-cart-shopping fa-xl text-info position-relative"
+            ></i>
+            <div
+              style="
+                width: 18px;
+                height: 18px;
+                top: -4.5px;
+                right: -4.5px;
+                font-size: 14px;
+              "
+              class="text-white bg-danger rounded-pill position-absolute d-flex justify-content-center align-items-center"
+            >
+              {{countCart}}
+            </div>
+          </div></a
+        >
+        <div class="btn-group ms-3">
+          <button
+            class="btn btn-info dropdown-toggle text-white fw-bold"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span>{{user.ten_tai_khoan}} ({{user.vai_tro}})</span>
+          </button>
+          <ul class="dropdown-menu border border-info">
+            <li>
+              <a class="dropdown-item list" href="#">Thông tin tài khoản</a>
+            </li>
+            <li>
+              <a class="dropdown-item list" href="#!/don-hang"
+                >Đơn hàng của tôi</a
+              >
+            </li>
+            <li ng-if="user.vai_tro=='admin'">
+              <a
+                class="dropdown-item list"
+                href="#!/admin/san-pham/danh-sach-san-pham"
+                >Đăng nhập admin</a
+              >
+            </li>
+
+            <li>
+              <a class="dropdown-item list" href="index.html">Đăng xuất</a>
+            </li>
+          </ul>
+          <style>
+            .list {
+              color: #0dcaf0;
+            }
+            .list:hover {
+              color: white;
+              background: #0dcaf0;
+            }
+          </style>
+        </div>
+      </div>
+      <form ng-if="login==undefined" class="d-flex">
+        <a class="text-decoration-none me-2" href="#!/dang-nhap"
+          ><button
+            class="btn btn-outline-info rounded-4"
+            style="border: solid 2px #0dcaf0"
+            type="button"
+          >
+            <i class="fa-regular fa-user me-1"></i>
+            Đăng Nhập
+          </button>
+        </a>
+        <a class="text-decoration-none" href="#!/dang-ky">
+          <button
+            class="btn btn-outline-info rounded-4"
+            style="border: solid 2px #0dcaf0"
+            type="button"
+          >
+            <i class="fa-regular fa-user me-1"></i>
+            Đăng Ký
+          </button>
+        </a>
+      </form>
+    </div>
+  </div>
+</nav>
+<style>
+  .btn-outline-info:hover,
+  .btn-outline-info:active {
+    color: white !important;
+  }
+  .nav-link:hover,
+  .nav-link:focus {
+    color: #0dcaf0;
+  }
+</style>

@@ -1,0 +1,40 @@
+<div class="container mb-5" style="min-height: calc(100vh - 357.49px)">
+  <h3 class="mt-5 mb-3" style="color: #0dcaf0">
+    ĐƠN HÀNG CỦA {{user.ten_tai_khoan}}
+  </h3>
+  <table class="table border text-center">
+    <thead>
+      <tr>
+        <th style="background-color: #fbfbfb">Mã đơn hàng</th>
+        <th style="background-color: #fbfbfb">Tên khách hàng</th>
+        <th style="background-color: #fbfbfb">Số Điện Thoại</th>
+        <th style="background-color: #fbfbfb">Email</th>
+        <th style="background-color: #fbfbfb">Địa Chỉ</th>
+        <th style="background-color: #fbfbfb">Tổng Tiền</th>
+        <th style="background-color: #fbfbfb">Trạng Thái</th>
+        <th style="background-color: #fbfbfb">Xem chi tiết</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="dh in dsDonHang">
+        <td class="py-3" style="color: #707070">{{dh.id}}</td>
+        <td class="py-3">{{dh.ten_tai_khoan}}</td>
+        <td class="py-3">{{dh.so_dien_thoai}}</td>
+        <td class="py-3">{{dh.email}}</td>
+        <td class="py-3">{{dh.dia_chi}}</td>
+        <td class="py-3 fw-bold" style="color: #0dcaf0">
+          {{dh.tong_gia | number:0}} VNĐ
+        </td>
+        <td class="py-3">{{dh.trang_thai}}</td>
+        <td>
+          <button
+            ng-click="onClickXemChiTietDonHang(dh.id)"
+            class="btn btn-info text-white fw-bold rounded-0 px-3 py-2"
+          >
+            Xem chi tiết
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

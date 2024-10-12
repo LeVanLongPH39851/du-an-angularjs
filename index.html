@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHOP ACC LIÊN QUÂN</title>
+    <link rel="stylesheet" href="../lib/bootstrap.css" />
+    <script src="../lib/bootstrap.js"></script>
+    <script src="../lib/font-fontawesome-ae333ffef2.js"></script>
+    <script src="../lib/angular.js"></script>
+    <script src="../lib/angular-route.js"></script>
+  </head>
+  <body ng-app="myApp" style="font-family: 'Roboto Condensed', sans-serif">
+    <header>
+      <div
+        ng-if="trang == 'admin'"
+        ng-include="'views/admin/layout/header.html'"
+      ></div>
+      <div
+        ng-if="trang == 'user'"
+        ng-include="'views/user/layout/header.html'"
+      ></div>
+    </header>
+    <main ng-view>
+      <!-- Khu vực nội dung thay đổi theo route -->
+    </main>
+    <footer>
+      <div
+        ng-if="trang == 'user'"
+        ng-include="'views/user/layout/footer.html'"
+      ></div>
+    </footer>
+    <script>
+      // Khởi tạo nôi dung app
+      var app = angular.module("myApp", ["ngRoute"]);
+      app.run(function ($rootScope, $location) {
+        $rootScope.$on("$routeChangeStart", function () {
+          // Kiểm tra nếu URL chứa "/admin"
+          if ($location.path().includes("/admin")) {
+            // Thực hiện các hành động tương ứng
+            $rootScope.trang = "admin";
+            // ...
+          } else {
+            $rootScope.trang = "user";
+          }
+        });
+      });
+      // Khai báo routeProvider
+      app.config(function ($routeProvider) {
+        $routeProvider
+          // Sản Phẩm
+          .when("/admin/san-pham/danh-sach-san-pham", {
+            templateUrl: "views/admin/sanpham/danhsachsanpham.html",
+            controller: "listProductCtrl",
+          })
+          .when("/admin/san-pham/tao-moi-san-pham", {
+            templateUrl: "views/admin/sanpham/taomoisanpham.html",
+            controller: "addProductCtrl",
+          })
+          .when("/admin/san-pham/:id/xem-san-pham", {
+            templateUrl: "views/admin/sanpham/xemsanpham.html",
+            controller: "detailProductCtrl",
+          })
+          .when("/admin/san-pham/:id/sua-san-pham", {
+            templateUrl: "views/admin/sanpham/suasanpham.html",
+            controller: "editProductCtrl",
+          })
+          // Danh Mục
+          .when("/admin/danh-muc/danh-sach-danh-muc", {
+            templateUrl: "views/admin/danhmuc/danhsachdanhmuc.html",
+            controller: "listCategoryCtrl",
+          })
+          .when("/admin/danh-muc/tao-moi-danh-muc", {
+            templateUrl: "views/admin/danhmuc/taomoidanhmuc.html",
+            controller: "addCategoryCtrl",
+          })
+          .when("/admin/danh-muc/:ten/xem-danh-muc", {
+            templateUrl: "views/admin/danhmuc/xemdanhmuc.html",
+            controller: "detailCategoryCtrl",
+          })
+          .when("/admin/danh-muc/:id/sua-danh-muc", {
+            templateUrl: "views/admin/danhmuc/suadanhmuc.html",
+            controller: "editCategoryCtrl",
+          })
+          .when("/admin/don-hang/danh-sach-don-hang", {
+            templateUrl: "views/admin/donhang/danhsachdonhang.html",
+            controller: "listDonHangCtrl",
+          })
+          .when("/admin/don-hang/:id/sua-don-hang", {
+            templateUrl: "views/admin/donhang/suadonhang.html",
+            controller: "editDonHangCtrl",
+          })
+          .when("/admin/don-hang/:id/xem-don-hang", {
+            templateUrl: "views/admin/donhang/xemdonhang.html",
+            controller: "chitietdonHangAdminCtrl",
+          })
+          .when("/trang-chu", {
+            templateUrl: "views/user/trangchu.html",
+            controller: "trangChuCtrl",
+          })
+          .when("/:id/trang-chi-tiet/", {
+            templateUrl: "views/user/chitietsanpham.html",
+            controller: "trangChiTietCtrl",
+          })
+          .when("/dang-nhap", {
+            templateUrl: "views/user/dangnhap.html",
+            controller: "dangNhapCtrl",
+          })
+          .when("/dang-ky", {
+            templateUrl: "views/user/dangky.html",
+            controller: "dangKyCtrl",
+          })
+          .when("/san-pham", {
+            templateUrl: "views/user/sanpham.html",
+            controller: "sanPhamCtrl",
+          })
+          .when("/:ten/xem-danh-muc-trang-chu", {
+            templateUrl: "views/user/sanpham.html",
+            controller: "xemDanhMucTrangChuCtrl",
+          })
+          .when("/gio-hang", {
+            templateUrl: "views/user/giohang.html",
+            controller: "gioHangCtrl",
+          })
+          .when("/thanh-toan", {
+            templateUrl: "views/user/thanhtoan.html",
+            controller: "thanhToanCtrl",
+          })
+          .when("/don-hang", {
+            templateUrl: "views/user/donhang.html",
+            controller: "donHangCtrl",
+          })
+          .when("/:id/xem-chi-tiet-don-hang", {
+            templateUrl: "views/user/chitietdonhang.html",
+            controller: "chitietdonHangCtrl",
+          })
+          .otherwise({
+            redirectTo: "/trang-chu",
+          });
+      });
+    </script>
+    <script src="controllers/admin/sanpham/DanhSachSanPham.js"></script>
+    <script src="controllers/admin/sanpham/SuaSanPham.js"></script>
+    <script src="controllers/admin/sanpham/XemSanPham.js"></script>
+    <script src="controllers/admin/sanpham/TaoMoiSanPham.js"></script>
+    <script src="controllers/admin/danhmuc/DanhSachDanhMuc.js"></script>
+    <script src="controllers/admin/danhmuc/TaoMoiDanhMuc.js"></script>
+    <script src="controllers/admin/danhmuc/SuaDanhMuc.js"></script>
+    <script src="controllers/admin/danhmuc/XemDanhMuc.js"></script>
+    <script src="controllers/admin/donhang/DanhSachDonHangAdmin.js"></script>
+    <script src="controllers/admin/donhang/SuaDonHang.js"></script>
+    <script src="controllers/admin/donhang/XemDonHang.js"></script>
+    <script src="controllers/user/TrangChu.js"></script>
+    <script src="controllers/user/TrangChiTiet.js"></script>
+    <script src="controllers/user/DangKy.js"></script>
+    <script src="controllers/user/DangNhap.js"></script>
+    <script src="controllers/user/SanPham.js"></script>
+    <script src="controllers/user/XemDanhMucTrangChu.js"></script>
+    <script src="controllers/user/GioHang.js"></script>
+    <script src="controllers/user/ThanhToan.js"></script>
+    <script src="controllers/user/DonHang.js"></script>
+    <script src="controllers/user/ChiTietDonHang.js"></script>
+  </body>
+</html>

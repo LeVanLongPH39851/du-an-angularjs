@@ -1,0 +1,80 @@
+<div class="container mt-5 mb-5">
+  <h3 class="mb-3">Sửa Sản Phẩm</h3>
+  <form>
+    <div class="mb-3">
+      <label class="form-label" for="">ID:</label>
+      <input class="form-control" ng-model="inputValue.id" type="text" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="">Ảnh Mô Tả:</label>
+      <input class="form-control" ng-model="inputValue.anh_mo_ta" type="text" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="">Album ảnh chi tiết:</label>
+      <input
+        class="form-control"
+        ng-model="inputValue.album_anh_ct"
+        type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="">Giá:</label>
+      <input class="form-control" ng-model="inputValue.gia" type="text" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="">Tướng:</label>
+      <input class="form-control" ng-model="inputValue.tuong" type="text" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="">Trang Phục:</label>
+      <input
+        class="form-control"
+        ng-model="inputValue.trang_phuc"
+        type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="">Rank:</label>
+      <input class="form-control" ng-model="inputValue.rank" type="text" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="">Ngọc 90:</label>
+      <select class="form-control" ng-model="inputValue.ngoc_90" name="" id="">
+        <option value="Có">Có</option>
+        <option selected value="Không">Không</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="">Mô Tả:</label>
+      <textarea
+        class="form-control"
+        ng-model="inputValue.mo_ta"
+        name=""
+        id=""
+        cols="30"
+        rows="5"
+      ></textarea>
+    </div>
+    <div class="mb-4">
+      <label class="form-label" for="">Danh Mục:</label>
+      <select class="form-control" ng-model="inputValue.danh_muc" name="" id="">
+        <option ng-repeat="dm in dsDanhMuc" value="{{dm.ten_danh_muc}}">
+          {{dm.ten_danh_muc}}
+        </option>
+      </select>
+    </div>
+    <div class="d-flex justify-content-center">
+      <a href="#!/admin/san-pham/danh-sach-san-pham" class="nav-link">
+        <button class="btn btn-secondary mx-1">
+          <i class="fa-solid fa-arrow-left me-1"></i>Quay Lại
+        </button>
+      </a>
+      <button
+        ng-click="onClickCapNhatSanPham()"
+        class="btn btn-info text-white mx-1"
+      >
+        <i class="fa-solid fa-pen-to-square me-1"></i>Sửa
+      </button>
+    </div>
+  </form>
+</div>

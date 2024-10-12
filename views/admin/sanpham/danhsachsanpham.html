@@ -1,0 +1,80 @@
+<div class="container mt-5 mb-5">
+  <h3 class="mb-3">Danh Sách Sản Phẩm</h3>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex">
+      <button
+        id="myButton"
+        ng-click="onClickAllSanPham()"
+        class="btn btn-outline-info mb-3 me-2 rounded-0"
+      >
+        Tất Cả
+      </button>
+      <button
+        ng-repeat="dm in dsDanhMuc"
+        ng-click="onClickDanhMuc(dm.ten_danh_muc)"
+        class="btn btn-outline-info rounded-0 mb-3 me-2"
+      >
+        {{dm.ten_danh_muc}}
+      </button>
+      <style>
+        .btn-outline-info:hover,
+        .btn-outline-info:focus,
+        .btn-outline-info:active {
+          color: white !important;
+          background-color: #0dcaf0;
+        }
+      </style>
+    </div>
+    <button
+      class="btn btn-info text-white mb-3 d-flex"
+      ng-click="onClickFormAddSanPham()"
+    >
+      <a href="" class="nav-link">
+        <i class="fa-solid fa-plus me-1"></i>Tạo mới</a
+      >
+    </button>
+  </div>
+  <table class="table table-bordered table-striped text-center table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Ảnh Mô Tả</th>
+        <th scope="col">Giá</th>
+        <th scope="col">Danh Mục</th>
+        <th scope="col">Thao Tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="sp in dsSanPham">
+        <th scope="row">{{sp.id}}</th>
+        <td>
+          <img src="{{sp.anh_mo_ta}}" width="100px" alt="" />
+        </td>
+        <td>{{sp.gia | number:0}}đ</td>
+        <td>{{sp.danh_muc}}</td>
+        <td>
+          <button
+            ng-click="onClickXemSanPham(sp.id)"
+            class="btn btn-success me-1"
+          >
+            <i class="fa-solid fa-eye me-1"></i>Xem</button
+          ><button
+            class="btn btn-warning mx-1"
+            ng-click="onClickFormEditSanPham(sp.id)"
+          >
+            <i class="fa-solid fa-pen-to-square me-1"></i>Sửa
+          </button>
+          <button
+            type="button"
+            ng-click="onClickXoaSanPham(sp.id)"
+            class="btn btn-danger"
+          >
+            <i class="fa-solid fa-trash"></i> Xóa
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Button trigger modal -->
+  <!-- Modal -->
+</div>
